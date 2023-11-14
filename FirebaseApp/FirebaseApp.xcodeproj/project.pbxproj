@@ -46,8 +46,11 @@
 		6277A5F22AFBF08D008E9907 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6277A5F12AFBF08D008E9907 /* UIViewExt.swift */; };
 		6277A5F52AFBFEBD008E9907 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 6277A5F42AFBFEBD008E9907 /* note.json */; };
 		6277A5F82AFBFEFE008E9907 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 6277A5F72AFBFEFE008E9907 /* Lottie */; };
-		62A750122AFC18EE00322DAC /* toDo.png in Resources */ = {isa = PBXBuildFile; fileRef = 62A750112AFC18EE00322DAC /* toDo.png */; };
 		62A750162AFC1FD100322DAC /* pancil.json in Resources */ = {isa = PBXBuildFile; fileRef = 62A750152AFC1FD100322DAC /* pancil.json */; };
+		62CAB3E32B02110500E42704 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CAB3E22B02110500E42704 /* User.swift */; };
+		62CAB3E52B02111400E42704 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CAB3E42B02111400E42704 /* Task.swift */; };
+		62CAB3F02B02E8E800E42704 /* TasksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CAB3EF2B02E8E800E42704 /* TasksTVC.swift */; };
+		62EDBE852AFD4B7000865EE9 /* RegistrationVCExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EDBE842AFD4B7000865EE9 /* RegistrationVCExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,8 +67,11 @@
 		6277A5ED2AFBEF5F008E9907 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6277A5F12AFBF08D008E9907 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		6277A5F42AFBFEBD008E9907 /* note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = note.json; sourceTree = "<group>"; };
-		62A750112AFC18EE00322DAC /* toDo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toDo.png; sourceTree = "<group>"; };
 		62A750152AFC1FD100322DAC /* pancil.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pancil.json; sourceTree = "<group>"; };
+		62CAB3E22B02110500E42704 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		62CAB3E42B02111400E42704 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		62CAB3EF2B02E8E800E42704 /* TasksTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTVC.swift; sourceTree = "<group>"; };
+		62EDBE842AFD4B7000865EE9 /* RegistrationVCExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVCExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,8 @@
 		6277A5E92AFBED09008E9907 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				62CAB3E22B02110500E42704 /* User.swift */,
+				62CAB3E42B02111400E42704 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 			children = (
 				6277A5ED2AFBEF5F008E9907 /* LoginViewController.swift */,
 				622E85E12AFC0FD100F347D7 /* RegistrationViewController.swift */,
+				62CAB3EF2B02E8E800E42704 /* TasksTVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 		6277A5EF2AFBF06B008E9907 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				62EDBE842AFD4B7000865EE9 /* RegistrationVCExt.swift */,
 				6277A5F02AFBF078008E9907 /* DisignExtensions */,
 			);
 			path = Extensions;
@@ -227,7 +237,6 @@
 		62A750102AFC18CE00322DAC /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				62A750112AFC18EE00322DAC /* toDo.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -324,7 +333,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62A750122AFC18EE00322DAC /* toDo.png in Resources */,
 				6277A5A52AFBE333008E9907 /* LaunchScreen.storyboard in Resources */,
 				62A750162AFC1FD100322DAC /* pancil.json in Resources */,
 				6277A5F52AFBFEBD008E9907 /* note.json in Resources */,
@@ -342,10 +350,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CAB3E32B02110500E42704 /* User.swift in Sources */,
 				6277A5F22AFBF08D008E9907 /* UIViewExt.swift in Sources */,
+				62EDBE852AFD4B7000865EE9 /* RegistrationVCExt.swift in Sources */,
 				6277A5EE2AFBEF5F008E9907 /* LoginViewController.swift in Sources */,
+				62CAB3E52B02111400E42704 /* Task.swift in Sources */,
 				6277A5962AFBE330008E9907 /* AppDelegate.swift in Sources */,
 				6277A5982AFBE330008E9907 /* SceneDelegate.swift in Sources */,
+				62CAB3F02B02E8E800E42704 /* TasksTVC.swift in Sources */,
 				622E85E32AFC0FD100F347D7 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +518,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,6 +547,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

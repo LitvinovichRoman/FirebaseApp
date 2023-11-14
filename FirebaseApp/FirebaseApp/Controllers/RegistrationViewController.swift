@@ -13,8 +13,8 @@ import FirebaseAuth
 class RegistrationViewController: UIViewController {
 
     var ref: DatabaseReference!
+    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
     
-    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var emailSubView: UIView!
     @IBOutlet weak var passwordSubView: UIView!
@@ -25,25 +25,36 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference(withPath: "users")
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         setupUI()
     }
 
     @IBAction func registrationButtonAction() {
-        guard let email = emailTextField.text,
-              let pass = passwordTextField.text,
-              !email.isEmpty,
-              !pass.isEmpty
-        else { return }
+        guard let email = emailTextField.text, !email.isEmpty,
+              let pass = passwordTextField.text, !pass.isEmpty
+        else {
+            displayWarning(withText: "Info is incorect")
+            return
+        }
         
         Auth.auth().createUser(withEmail: email, password: pass) { [weak self] user, error in
             if let error = error {
-                print(error)
+                self?.displayWarning(withText: "Registration was is incorect \n \n \(error) \n ")
             } else if let user = user {
                 let userRef = self?.ref.child(user.user.uid)
                 userRef?.setValue(["email": user.user.email])
             }
         }
+        
+    }
+    
+    private func displayWarning(withText text: String) {
+        let alertController = UIAlertController(title: "Warning", message: text, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Back", style: .cancel)
+        alertController.addAction(cancel)
+        present(alertController, animated: true, completion: nil)
     }
     
     private func setupUI(){
@@ -61,7 +72,7 @@ class RegistrationViewController: UIViewController {
         lottieView.animation = animation
         lottieView.contentMode = .scaleAspectFit
         lottieView.loopMode = .loop
-        lottieView.animationSpeed = 0.1
+        lottieView.animationSpeed = 0.2
         lottieView.backgroundColor  = .clear
 
         lottieView.frame = animationSubView.bounds
@@ -75,5 +86,10 @@ class RegistrationViewController: UIViewController {
         lottieView.play()
     }
     
+}
 
+extension RegistrationViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+    }
 }

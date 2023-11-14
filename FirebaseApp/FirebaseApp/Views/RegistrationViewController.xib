@@ -13,7 +13,6 @@
                 <outlet property="animationSubView" destination="Ao6-pY-92U" id="38y-t5-mwW"/>
                 <outlet property="emailSubView" destination="QJK-Wf-NQk" id="ngz-go-lgn"/>
                 <outlet property="emailTextField" destination="gwT-LK-54l" id="rJz-jL-4dU"/>
-                <outlet property="errorLabel" destination="Nyi-bf-Z2k" id="LME-Qc-2Jg"/>
                 <outlet property="passwordSubView" destination="BXf-Ki-4vC" id="JNv-Xk-Dek"/>
                 <outlet property="passwordTextField" destination="XCq-HG-8ck" id="5O8-5x-BQN"/>
                 <outlet property="registrationButton" destination="gCu-WP-MDN" id="eLs-gB-JGW"/>
@@ -108,19 +107,10 @@
                         <constraint firstAttribute="height" constant="150" id="mb1-3Y-IMb"/>
                     </constraints>
                 </view>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some error text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyi-bf-Z2k">
-                    <rect key="frame" x="16" y="684" width="361" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" systemColor="systemRedColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" red="0.93711590769999997" green="0.95758444070000004" blue="0.91764181850000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="Nyi-bf-Z2k" firstAttribute="top" secondItem="ZXz-2H-hBS" secondAttribute="bottom" constant="35" id="24i-aO-P0o"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Nyi-bf-Z2k" secondAttribute="trailing" constant="16" id="3Zj-ei-lUh"/>
-                <constraint firstItem="Nyi-bf-Z2k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Jc6-4F-41v"/>
                 <constraint firstItem="ZXz-2H-hBS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="295" id="MqZ-nU-pwb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZXz-2H-hBS" secondAttribute="trailing" constant="16" id="db0-aR-saI"/>
                 <constraint firstItem="Ao6-pY-92U" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="96" id="f8Y-TA-jDR"/>
@@ -138,9 +128,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
