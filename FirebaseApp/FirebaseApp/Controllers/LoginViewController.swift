@@ -10,11 +10,7 @@ import Lottie
 import FirebaseDatabaseInternal
 import FirebaseAuth
 
-final class LoginViewController: UIViewController {
-    
-    var ref: DatabaseReference!
-    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
-
+final class LoginViewController: BaseAuthViewController {
     
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -67,16 +63,10 @@ final class LoginViewController: UIViewController {
             self?.performSegue(withIdentifier: "goToTasksTVC", sender: nil)
         })
     }
-    
-    private func displayWarning(withText text: String) {
-        let alertController = UIAlertController(title: "Warning", message: text, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Back", style: .cancel)
-        alertController.addAction(cancel)
-        present(alertController, animated: true, completion: nil)
-    }
+
     //MARK: - setupUI
     private func setupUI() {
-        setupLottieAnimation()
+        setupLottieAnimation(forView: animationSub, animationName: "note", animationSpeed: 0.2)
         loginSubView.capsuleCornerRadius()
         passwordSubView.capsuleCornerRadius()
         registrationSub.cornerRadius()
@@ -86,25 +76,6 @@ final class LoginViewController: UIViewController {
         loginButton.capsuleCornerRadius()
     }
     
-    private func setupLottieAnimation() {
-        let lottieView = LottieAnimationView()
-        let animation = LottieAnimation.named("note")
-        lottieView.animation = animation
-        lottieView.contentMode = .scaleAspectFit
-        lottieView.loopMode = .loop
-        lottieView.animationSpeed = 0.1
-        lottieView.backgroundColor  = .clear
-
-        lottieView.frame = animationSub.bounds
-        lottieView.play()
-        view.addSubview(lottieView)
-        
-        let imageView = UIImageView(frame: animationSub.bounds)
-        imageView.addSubview(lottieView)
-        
-        animationSub.addSubview(imageView)
-        lottieView.play()
-    }
     //MARK: - keyaboard config
     @objc private func keyboardWillShow(_ notification: Notification) {
         view.frame.origin.y = 0
@@ -121,8 +92,3 @@ final class LoginViewController: UIViewController {
 }
 
 
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-    }
-}

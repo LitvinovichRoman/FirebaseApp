@@ -10,10 +10,7 @@ import Lottie
 import FirebaseDatabaseInternal
 import FirebaseAuth
 
-class RegistrationViewController: UIViewController {
-
-    var ref: DatabaseReference!
-    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
+class RegistrationViewController: BaseAuthViewController {
     
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var emailSubView: UIView!
@@ -49,16 +46,10 @@ class RegistrationViewController: UIViewController {
         }
         
     }
-    
-    private func displayWarning(withText text: String) {
-        let alertController = UIAlertController(title: "Warning", message: text, preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Back", style: .cancel)
-        alertController.addAction(cancel)
-        present(alertController, animated: true, completion: nil)
-    }
+
     
     private func setupUI(){
-        setupLottieAnimation()
+        setupLottieAnimation(forView: animationSubView, animationName: "pencil", animationSpeed: 0.2)
         subView.cornerRadius()
         subView.setShadow()
         emailSubView.capsuleCornerRadius()
@@ -66,30 +57,7 @@ class RegistrationViewController: UIViewController {
         registrationButton.capsuleCornerRadius()
     }
     
-    private func setupLottieAnimation() {
-        let lottieView = LottieAnimationView()
-        let animation = LottieAnimation.named("pancil")
-        lottieView.animation = animation
-        lottieView.contentMode = .scaleAspectFit
-        lottieView.loopMode = .loop
-        lottieView.animationSpeed = 0.2
-        lottieView.backgroundColor  = .clear
-
-        lottieView.frame = animationSubView.bounds
-        lottieView.play()
-        view.addSubview(lottieView)
-        
-        let imageView = UIImageView(frame: animationSubView.bounds)
-        imageView.addSubview(lottieView)
-        
-        animationSubView.addSubview(imageView)
-        lottieView.play()
-    }
-    
 }
 
-extension RegistrationViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-    }
-}
+
+

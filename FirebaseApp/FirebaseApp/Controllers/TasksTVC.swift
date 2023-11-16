@@ -16,6 +16,7 @@ class TasksTVC: UITableViewController {
     private var user: User!
     private var tasks = [Task]()
     var ref: DatabaseReference!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,22 @@ class TasksTVC: UITableViewController {
     }
     
     @IBAction func addImageAction(_ sender: UIBarButtonItem) {
+        let storageRef = Storage.storage().reference()
+        let imageKey = NSUUID().uuidString
+        let imageRef = storageRef.child(imageKey)
+        guard let imageData = #imageLiteral(resourceName: "image.jpg").pngData() else { return }
+    
+        let uploadTask = imageRef.putData(imageData) { storageMetadata, error in
+            print("\n storageMetadata: \n \(String(describing: storageMetadata)) \n")
+            print("\n error: \n \(String(describing: error)) \n")
+    
+        let downloadTask = imageRef.getData(maxSize: 9999999999) { data, error in
+            print("\n data: \n \(String(describing: data)) \n")
+            print("\n error: \n \(String(describing: error)) \n")
+            guard let image = UIImage(data: data!) else { return }
+            
+            }
+        }
     }
     
     
@@ -88,21 +105,24 @@ class TasksTVC: UITableViewController {
         toggleColetion(cell: cell, isCompleted: currentTask.completed)
         return cell
     }
-    //криво 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let task = tasks[indexPath.row]
-            let taskRef = ref.child(task.title.lowercased())
-            
-                taskRef.removeValue { error, _ in
-                if let error = error {
-                    print("Error removing task: \(error.localizedDescription)")
-                    return
-                }
-                self.tasks.remove(at: indexPath.row)
-                
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-        }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        let task = tasks[indexPath.row]
+        let isComplete = !task.completed
+        
+        task.ref.updateChildValues(["completed" : isComplete]) // записываем данные в ячейку
+        
+        
     }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let task = tasks[indexPath.row]
+        task.ref.removeValue()
+    }
+    
 }
