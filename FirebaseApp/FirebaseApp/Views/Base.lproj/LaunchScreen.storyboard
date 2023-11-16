@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toDo.png" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-hg-xw2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngwing.com" translatesAutoresizingMaskIntoConstraints="NO" id="pKR-hg-xw2">
                                 <rect key="frame" x="52" y="287" width="289" height="278"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TaskTracker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsU-Qm-kIw">
@@ -44,6 +44,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="toDo.png" width="3000" height="3000"/>
+        <image name="pngwing.com" width="1024" height="1024"/>
     </resources>
 </document>
